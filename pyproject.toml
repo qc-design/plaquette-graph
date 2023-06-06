@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=64.0", "wheel", "build", "pybind11[global]", "ninja", "cmake"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "plaquette_graph"
+dynamic = ["version", "readme", "dependencies"]
+requires-python = ">=3.10"
+classifiers=[
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+]
+
+[project.urls]
+"Homepage" = "https://docs.plaquette.design/projects/graph"
+"Bug Tracker" = "https://github.com/qc-design/plaquette-graph/issues"
+
+[tool.cibuildwheel]
+archs = ["auto64"]
+
+[tool.setuptools]
+packages = ["plaquette_graph"]
+
+[tool.setuptools.dynamic]
+version = {attr = "plaquette_graph.__version__"}
+readme = {file = ["README.rst"]}
+dependencies = {file = ["requirements.txt"]}
