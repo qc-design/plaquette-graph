@@ -7,6 +7,11 @@ project(plaquette_graph
     LANGUAGES CXX C
 )
 
+if (MSVC)
+    # Explicitly allow exceptions
+    add_compile_options(/EHa)
+endif()
+
 
 add_subdirectory("plaquette_graph/src")
 

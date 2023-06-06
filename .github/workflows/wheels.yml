@@ -1,0 +1,26 @@
+name: Python wheels builds
+on:
+  pull_request:
+  push:
+    tags: ['*']
+  workflow_dispatch:
+
+jobs:
+  build_wheels:
+    name: ${{ matrix.os }} wheel for Python ${{ matrix.python-version }}
+    strategy:
+      matrix:
+        os: [ubuntu, macos, windows]
+        python-version: ["3.10", "3.11"]
+    runs-on: ${{ matrix.os }}-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+      - name: Install clang++ on macOS
+        if: ${{ startsWith('macos', matrix.os) || startsWith('m1', matrix.os) }}
+        run: brew install llvm
+      - name: Build wheels
+        uses: pypa/cibuildwheel@v2.12.3
+      - uses: actions/upload-artifact@v3
+        with:
+          path: ./wheelhouse/*.whl
