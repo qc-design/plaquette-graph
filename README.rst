@@ -9,8 +9,7 @@ Plaquette Graph Plugin
     :target: https://qc-design.github.io/plaquette-graph/
 
 .. header-start-inclusion-marker-do-not-remove
-	     
-|
+
 .. contents:: Table of Contents
 
 .. about-start-inclusion-marker-do-not-remove
