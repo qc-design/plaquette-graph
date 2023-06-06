@@ -1,0 +1,40 @@
+name: Docs (Linux)
+on: [push, pull_request, workflow_dispatch]
+permissions:
+    contents: write
+env:
+  PY_VERSION: 3.8
+  GCC_VERSION: 11
+
+jobs:
+  docs:
+    # Avoid to run the job twice, once on PR merge and once on the fact that this
+    # merge-event is also a push to the master branch
+    if: github.event.pull_request.merged == false || github.event_name == 'push'
+    name: Docs (Linux)
+    runs-on: ubuntu-22.04
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+    - name: Setup Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+        cache: 'pip'
+        cache-dependency-path: 'requirements*.txt'
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get -y -q install cmake gcc-${{ env.GCC_VERSION }} g++-${{ env.GCC_VERSION }} ninja-build graphviz doxygen
+    - name: Install Python packages
+      run: pip install -r requirements.txt && pip install . && pip install -r doc/requirements.txt
+    - name: Sphinx build
+      run: sphinx-build doc _build
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3.9.3
+      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      with:
+        publish_branch: gh-pages
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./_build
+        force_orphan: true
