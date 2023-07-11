@@ -128,7 +128,7 @@ class DecodingGraph : public SparseGraph {
        @return The corresponding local edge ID.
     */
     inline size_t GetLocalEdgeFromGlobalEdge(size_t global_edge_id,
-                                             size_t left_or_right_id) {
+                                             size_t left_or_right_id) const {
         return global_to_local_edge_map_[2 * global_edge_id + left_or_right_id];
     }
 };
