@@ -1,0 +1,209 @@
+
+.. _program_listing_file_plaquette_graph_src_SparseGraph.hpp:
+
+Program Listing for File SparseGraph.hpp
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_plaquette_graph_src_SparseGraph.hpp>` (``plaquette_graph/src/SparseGraph.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include <cassert>
+   #include <iostream>
+   #include <unordered_set>
+   #include <vector>
+   
+   #include "Utils.hpp"
+   
+   namespace Plaquette {
+   
+   class SparseGraphRow {
+     public:
+       // Constructor
+       SparseGraphRow(const std::vector<size_t> &row, size_t start, size_t end)
+           : row_(row), start_(start), end_(end) {}
+   
+       // Get the number of non-zero elements in the row
+       size_t size() const { return end_ - start_; }
+   
+       // Get the value at a specific index in the row
+       size_t operator[](int index) const { return row_[start_ + index]; }
+   
+     private:
+       // Reference to the column index and ID vectors
+       const std::vector<size_t> &row_;
+   
+       // Start and end indices of the row
+       size_t start_;
+       size_t end_;
+   };
+   
+   class SparseGraph {
+   
+     private:
+       size_t num_vertices_;
+   
+       std::vector<size_t> v_to_v_row_ptr_;
+       std::vector<size_t> v_to_v_edges_;
+       std::vector<size_t> v_to_v_col_;
+   
+       std::vector<size_t> e_to_e_row_ptr_;
+       std::vector<size_t> e_to_e_vertices_;
+       std::vector<size_t> e_to_e_col_;
+   
+       std::vector<std::pair<size_t, size_t>> e_to_v_;
+   
+     public:
+       SparseGraph() = default;
+       SparseGraph(size_t num_vertices,
+                   const std::vector<std::pair<size_t, size_t>> &edges) {
+           num_vertices_ = num_vertices;
+           ConstructEdgeToVertex_(edges);
+           ConstructVertexToVertexMatrix_(e_to_v_);
+           ConstructEdgeToEdgeMatrix_();
+       }
+   
+       void ConstructEdgeToVertex_(
+           const std::vector<std::pair<size_t, size_t>> &edges) {
+           std::unordered_set<size_t> visited;
+           for (auto edge : edges) {
+               if (visited.contains(edge.first * num_vertices_ + edge.second) ||
+                   visited.contains(edge.second * num_vertices_ + edge.first)) {
+                   continue;
+               }
+               e_to_v_.push_back(edge);
+               visited.insert(edge.first * num_vertices_ + edge.second);
+               visited.insert(edge.second * num_vertices_ + edge.first);
+           }
+       }
+   
+       size_t GetNumVertices() const { return num_vertices_; }
+   
+       size_t GetNumEdges() const { return e_to_v_.size(); }
+   
+       void ConstructVertexToVertexMatrix_(
+           const std::vector<std::pair<size_t, size_t>> &edges) {
+   
+           // Resize the CSR row pointer vector to hold one more element than the
+           // number of vertices
+           v_to_v_row_ptr_.resize(num_vertices_ + 1);
+   
+           // Initialize the CSR row pointer vector to zero
+           std::fill(v_to_v_row_ptr_.begin(), v_to_v_row_ptr_.end(), 0);
+   
+           // Count the number of edges incident to each vertex
+           for (const auto &edge : edges) {
+               v_to_v_row_ptr_[edge.first + 1]++;
+               v_to_v_row_ptr_[edge.second + 1]++;
+           }
+   
+           // Compute the prefix sum of the CSR row pointer vector
+           for (size_t i = 1; i < v_to_v_row_ptr_.size(); i++) {
+               v_to_v_row_ptr_[i] += v_to_v_row_ptr_[i - 1];
+           }
+   
+           // Resize the CSR column index vector and edge ID vector to hold the
+           // total number of edges
+           int numEdges = v_to_v_row_ptr_.back();
+           v_to_v_col_.resize(numEdges);
+           v_to_v_edges_.resize(numEdges);
+   
+           // Fill the CSR column index and edge ID vectors with the endpoints and
+           // IDs of the edges
+           std::vector<size_t> next(v_to_v_row_ptr_.begin(),
+                                    v_to_v_row_ptr_.end());
+   
+           for (size_t i = 0; i < edges.size(); i++) {
+               const auto &edge = edges[i];
+               v_to_v_col_[next[edge.first]] = edge.second;
+               v_to_v_edges_[next[edge.first]] = i;
+               next[edge.first]++;
+   
+               v_to_v_col_[next[edge.second]] = edge.first;
+               v_to_v_edges_[next[edge.second]] = i;
+               next[edge.second]++;
+           }
+       }
+   
+       void ConstructEdgeToEdgeMatrix_() {
+   
+           size_t num_dual_vertices = GetNumEdges();
+           std::unordered_set<size_t> visited;
+           std::vector<std::pair<size_t, size_t>> dual_edge_list;
+   
+           for (size_t i = 0; i < num_dual_vertices; i++) {
+               const auto &vertices = GetVerticesConnectedByEdge(i);
+               const auto &edges1 = GetEdgesTouchingVertex(vertices.first);
+               const auto &edges2 = GetEdgesTouchingVertex(vertices.second);
+   
+               for (size_t j = 0; j < edges1.size(); j++) {
+                   if (edges1[j] != i &&
+                       !visited.contains(i * num_dual_vertices + edges1[j]) &&
+                       !visited.contains(edges1[j] * num_dual_vertices + i)) {
+                       dual_edge_list.push_back(std::make_pair(i, edges1[j]));
+                       visited.insert(i * num_dual_vertices + edges1[j]);
+                       visited.insert(edges1[j] * num_dual_vertices + i);
+                   }
+               }
+               for (size_t j = 0; j < edges2.size(); j++) {
+                   if (edges2[j] != i &&
+                       !visited.contains(i * num_dual_vertices + edges2[j]) &&
+                       !visited.contains(edges2[j] * num_dual_vertices + i)) {
+                       dual_edge_list.push_back(std::make_pair(i, edges2[j]));
+                       visited.insert(i * num_dual_vertices + edges2[j]);
+                       visited.insert(edges2[j] * num_dual_vertices + i);
+                   }
+               }
+           }
+   
+           auto csr =
+               Utils::ConvertEdgeListToCSR(num_dual_vertices, dual_edge_list);
+           e_to_e_row_ptr_ = std::get<0>(csr);
+           e_to_e_col_ = std::get<1>(csr);
+       }
+   
+       SparseGraphRow GetEdgesTouchingVertex(size_t vertex_index) const {
+           size_t start = v_to_v_row_ptr_[vertex_index];
+           size_t end = v_to_v_row_ptr_[vertex_index + 1];
+           return SparseGraphRow(v_to_v_edges_, start, end);
+       }
+   
+       SparseGraphRow GetVerticesTouchingVertex(size_t vertex_index) const {
+           size_t start = v_to_v_row_ptr_[vertex_index];
+           size_t end = v_to_v_row_ptr_[vertex_index + 1];
+           return SparseGraphRow(v_to_v_col_, start, end);
+       }
+   
+       SparseGraphRow GetEdgesTouchingEdge(size_t edge_index) const {
+           size_t start = e_to_e_row_ptr_[edge_index];
+           size_t end = e_to_e_row_ptr_[edge_index + 1];
+           return SparseGraphRow(e_to_e_col_, start, end);
+       }
+   
+       const std::pair<size_t, size_t> &
+       GetVerticesConnectedByEdge(size_t edge_index) const {
+           return e_to_v_[edge_index];
+       }
+   
+       size_t
+       GetEdgeFromVertexPair(const std::pair<size_t, size_t> &vertex_pair) const {
+           size_t start = v_to_v_row_ptr_[vertex_pair.first];
+           size_t end = v_to_v_row_ptr_[vertex_pair.first + 1];
+   
+           // Search for the column index j in the row
+           for (size_t k = start; k < end; k++) {
+               if (v_to_v_col_[k] == vertex_pair.second) {
+                   // j is in the row, so the element is 1
+                   return v_to_v_edges_[k];
+               }
+           }
+   
+           assert(false && "Edge not found");
+           return -1;
+       }
+   };
+   }; // namespace Plaquette

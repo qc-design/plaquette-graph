@@ -1,0 +1,27 @@
+SparseGraph
+===========
+
+.. currentmodule:: plaquette_graph
+
+.. autoclass:: SparseGraph
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~SparseGraph.get_edges_touching_edge
+      ~SparseGraph.get_edges_touching_vertex
+      ~SparseGraph.get_num_edges
+      ~SparseGraph.get_num_vertices
+      ~SparseGraph.get_vertices_connected_by_edge
+      ~SparseGraph.get_vertices_touching_vertex
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: get_edges_touching_edge
+   .. automethod:: get_edges_touching_vertex
+   .. automethod:: get_num_edges
+   .. automethod:: get_num_vertices
+   .. automethod:: get_vertices_connected_by_edge
+   .. automethod:: get_vertices_touching_vertex

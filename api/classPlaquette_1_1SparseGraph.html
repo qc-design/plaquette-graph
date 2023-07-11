@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class SparseGraph &#8212; Plaquette C++ Graph 0.0.1-alpha.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class SparseGraphRow" href="classPlaquette_1_1SparseGraphRow.html" />
+    <link rel="prev" title="Class DecodingGraph" href="classPlaquette_1_1DecodingGraph.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="class-sparsegraph">
+<span id="exhale-class-classplaquette-1-1sparsegraph"></span><h1>Class SparseGraph<a class="headerlink" href="#class-sparsegraph" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_plaquette_graph_src_SparseGraph.hpp.html#file-plaquette-graph-src-sparsegraph-hpp"><span class="std std-ref">File SparseGraph.hpp</span></a></p></li>
+</ul>
+<div class="section" id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="derived-type">
+<h3>Derived Type<a class="headerlink" href="#derived-type" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Plaquette::DecodingGraph</span></code> (<a class="reference internal" href="classPlaquette_1_1DecodingGraph.html#exhale-class-classplaquette-1-1decodinggraph"><span class="std std-ref">Class DecodingGraph</span></a>)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9Plaquette11SparseGraphE">
+<span id="_CPPv3N9Plaquette11SparseGraphE"></span><span id="_CPPv2N9Plaquette11SparseGraphE"></span><span id="Plaquette::SparseGraph"></span><span class="target" id="classPlaquette_1_1SparseGraph"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SparseGraph</span></span></span><a class="headerlink" href="#_CPPv4N9Plaquette11SparseGraphE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A class representing an undirected sparse graph. </p>
+<p>This class stores information about the connections between vertices and edges in an undirected graph. The graph is represented by two adjacency matrices: one for vertex-vertex connections and one for edge-edge connections. The class also includes a lookup list for edge to vertices connections. Once an object of this class has been created, it is immutable. The adjacency matrices are stored in CSR format, because usually the graphs (e.g. decoding graphs) are sparse. </p>
+<p>Subclassed by <a class="reference internal" href="classPlaquette_1_1DecodingGraph.html#classPlaquette_1_1DecodingGraph"><span class="std std-ref">Plaquette::DecodingGraph</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Plaquette11SparseGraph11SparseGraphEv">
+<span id="_CPPv3N9Plaquette11SparseGraph11SparseGraphEv"></span><span id="_CPPv2N9Plaquette11SparseGraph11SparseGraphEv"></span><span id="Plaquette::SparseGraph::SparseGraph"></span><span class="target" id="classPlaquette_1_1SparseGraph_1a15a6aab800fb468414cc020c9ada8f41"></span><span class="sig-name descname"><span class="n"><span class="pre">SparseGraph</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N9Plaquette11SparseGraph11SparseGraphEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Plaquette11SparseGraph11SparseGraphE6size_tRKNSt6vectorINSt4pairI6size_t6size_tEEEE">
+<span id="_CPPv3N9Plaquette11SparseGraph11SparseGraphE6size_tRKNSt6vectorINSt4pairI6size_t6size_tEEEE"></span><span id="_CPPv2N9Plaquette11SparseGraph11SparseGraphE6size_tRKNSt6vectorINSt4pairI6size_t6size_tEEEE"></span><span id="Plaquette::SparseGraph::SparseGraph__s.std::vector:std::pair:s.s::CR"></span><span class="target" id="classPlaquette_1_1SparseGraph_1a6ccce7a542d950640454ab681a5116cf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SparseGraph</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_vertices</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">edges</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9Plaquette11SparseGraph11SparseGraphE6size_tRKNSt6vectorINSt4pairI6size_t6size_tEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Plaquette11SparseGraph22ConstructEdgeToVertex_ERKNSt6vectorINSt4pairI6size_t6size_tEEEE">
+<span id="_CPPv3N9Plaquette11SparseGraph22ConstructEdgeToVertex_ERKNSt6vectorINSt4pairI6size_t6size_tEEEE"></span><span id="_CPPv2N9Plaquette11SparseGraph22ConstructEdgeToVertex_ERKNSt6vectorINSt4pairI6size_t6size_tEEEE"></span><span id="Plaquette::SparseGraph::ConstructEdgeToVertex___std::vector:std::pair:s.s::CR"></span><span class="target" id="classPlaquette_1_1SparseGraph_1ab65adb29885016ad8c5c4b0b34ca3846"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConstructEdgeToVertex_</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">edges</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9Plaquette11SparseGraph22ConstructEdgeToVertex_ERKNSt6vectorINSt4pairI6size_t6size_tEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct the edge to vertex lookup list. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>edges</strong> – A vector of pairs of vertices that represent the edges in the graph. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9Plaquette11SparseGraph14GetNumVerticesEv">
+<span id="_CPPv3NK9Plaquette11SparseGraph14GetNumVerticesEv"></span><span id="_CPPv2NK9Plaquette11SparseGraph14GetNumVerticesEv"></span><span id="Plaquette::SparseGraph::GetNumVerticesC"></span><span class="target" id="classPlaquette_1_1SparseGraph_1a84eccd2c983e8127b424b48b58a3b92a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumVertices</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9Plaquette11SparseGraph14GetNumVerticesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of vertices in the graph. </p>
+<p>This function returns the number of vertices in the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The number of vertices in the graph. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9Plaquette11SparseGraph11GetNumEdgesEv">
+<span id="_CPPv3NK9Plaquette11SparseGraph11GetNumEdgesEv"></span><span id="_CPPv2NK9Plaquette11SparseGraph11GetNumEdgesEv"></span><span id="Plaquette::SparseGraph::GetNumEdgesC"></span><span class="target" id="classPlaquette_1_1SparseGraph_1af8f3509dfd61ed31a4dc8917b9efa51f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumEdges</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9Plaquette11SparseGraph11GetNumEdgesEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the number of edges in the graph. </p>
+<p>This function returns the number of edges in the graph. The number of edges is calculated as the size of the vector of pairs of vertices connected by edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The number of edges in the graph. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Plaquette11SparseGraph30ConstructVertexToVertexMatrix_ERKNSt6vectorINSt4pairI6size_t6size_tEEEE">
+<span id="_CPPv3N9Plaquette11SparseGraph30ConstructVertexToVertexMatrix_ERKNSt6vectorINSt4pairI6size_t6size_tEEEE"></span><span id="_CPPv2N9Plaquette11SparseGraph30ConstructVertexToVertexMatrix_ERKNSt6vectorINSt4pairI6size_t6size_tEEEE"></span><span id="Plaquette::SparseGraph::ConstructVertexToVertexMatrix___std::vector:std::pair:s.s::CR"></span><span class="target" id="classPlaquette_1_1SparseGraph_1a218f78fea56ca0d97e46cfb00052ffae"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConstructVertexToVertexMatrix_</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">edges</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9Plaquette11SparseGraph30ConstructVertexToVertexMatrix_ERKNSt6vectorINSt4pairI6size_t6size_tEEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct the vertex-vertex adjacency matrix. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_vertices</strong> – The number of vertices in the graph. </p></li>
+<li><p><strong>edges</strong> – A vector of pairs of vertex indices representing the edges in the graph. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Plaquette11SparseGraph26ConstructEdgeToEdgeMatrix_Ev">
+<span id="_CPPv3N9Plaquette11SparseGraph26ConstructEdgeToEdgeMatrix_Ev"></span><span id="_CPPv2N9Plaquette11SparseGraph26ConstructEdgeToEdgeMatrix_Ev"></span><span id="Plaquette::SparseGraph::ConstructEdgeToEdgeMatrix_"></span><span class="target" id="classPlaquette_1_1SparseGraph_1ae616000d82d874b8aca0b1459a0078b4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConstructEdgeToEdgeMatrix_</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9Plaquette11SparseGraph26ConstructEdgeToEdgeMatrix_Ev" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Construct the edge-edge adjacency matrix. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_vertices</strong> – The number of vertices in the graph. </p></li>
+<li><p><strong>edges</strong> – A vector of pairs of vertex indices representing the edges in the graph. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9Plaquette11SparseGraph22GetEdgesTouchingVertexE6size_t">
+<span id="_CPPv3NK9Plaquette11SparseGraph22GetEdgesTouchingVertexE6size_t"></span><span id="_CPPv2NK9Plaquette11SparseGraph22GetEdgesTouchingVertexE6size_t"></span><span id="Plaquette::SparseGraph::GetEdgesTouchingVertex__sC"></span><span class="target" id="classPlaquette_1_1SparseGraph_1abeb3bf4f904de144d230ae0cbcaeabe0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#_CPPv4N9Plaquette14SparseGraphRowE" title="Plaquette::SparseGraphRow"><span class="n"><span class="pre">SparseGraphRow</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetEdgesTouchingVertex</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex_index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9Plaquette11SparseGraph22GetEdgesTouchingVertexE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a row of edges in the graph that touch a given vertex. </p>
+<p>
+This function returns a row of edges in the graph that touch the given vertex. The row is represented as a <code class="docutils literal notranslate"><a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#classPlaquette_1_1SparseGraphRow"><span class="std std-ref"><span class="pre">SparseGraphRow</span></span></a></code> object, which is a lightweight view into a range of elements in a larger container.</p>
+<p>The edges in the row are returned as an rvalue reference to a <code class="docutils literal notranslate"><a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#classPlaquette_1_1SparseGraphRow"><span class="std std-ref"><span class="pre">SparseGraphRow</span></span></a></code> object, which allows the caller to avoid creating an unnecessary copy of the row.</p>
+<p>Note that the caller should not use the returned reference after the lifetime of the <code class="docutils literal notranslate"><a class="reference internal" href="classPlaquette_1_1DecodingGraph.html#classPlaquette_1_1DecodingGraph"><span class="std std-ref"><span class="pre">DecodingGraph</span></span></a></code> object, since the <code class="docutils literal notranslate"><a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#classPlaquette_1_1SparseGraphRow"><span class="std std-ref"><span class="pre">SparseGraphRow</span></span></a></code> object holds a reference to the <code class="docutils literal notranslate"><span class="pre">v_to_v_edges_</span></code> container owned by the <code class="docutils literal notranslate"><a class="reference internal" href="classPlaquette_1_1DecodingGraph.html#classPlaquette_1_1DecodingGraph"><span class="std std-ref"><span class="pre">DecodingGraph</span></span></a></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vertex_index</strong> – The index of the vertex in the graph. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A row of edges in the graph that touch the vertex.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9Plaquette11SparseGraph25GetVerticesTouchingVertexE6size_t">
+<span id="_CPPv3NK9Plaquette11SparseGraph25GetVerticesTouchingVertexE6size_t"></span><span id="_CPPv2NK9Plaquette11SparseGraph25GetVerticesTouchingVertexE6size_t"></span><span id="Plaquette::SparseGraph::GetVerticesTouchingVertex__sC"></span><span class="target" id="classPlaquette_1_1SparseGraph_1a381b5efe97c166dcdc1fbd3b078d180d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#_CPPv4N9Plaquette14SparseGraphRowE" title="Plaquette::SparseGraphRow"><span class="n"><span class="pre">SparseGraphRow</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetVerticesTouchingVertex</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">vertex_index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9Plaquette11SparseGraph25GetVerticesTouchingVertexE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the row of a sparse graph corresponding to the vertices touching the given vertex. </p>
+<p>
+This function returns a <a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#classPlaquette_1_1SparseGraphRow"><span class="std std-ref">SparseGraphRow</span></a> object representing the row of a sparse graph that contains the column indices of the vertices that are touching the given vertex. The indices are obtained from the v_to_v_row_ptr_ array. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vertex_index</strong> – Index of the vertex to get the row for. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#classPlaquette_1_1SparseGraphRow"><span class="std std-ref">SparseGraphRow</span></a> A <a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#classPlaquette_1_1SparseGraphRow"><span class="std std-ref">SparseGraphRow</span></a> object containing the column indices of the vertices touching the given vertex.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9Plaquette11SparseGraph20GetEdgesTouchingEdgeE6size_t">
+<span id="_CPPv3NK9Plaquette11SparseGraph20GetEdgesTouchingEdgeE6size_t"></span><span id="_CPPv2NK9Plaquette11SparseGraph20GetEdgesTouchingEdgeE6size_t"></span><span id="Plaquette::SparseGraph::GetEdgesTouchingEdge__sC"></span><span class="target" id="classPlaquette_1_1SparseGraph_1ac17e201c9ec91d43d19f30889a94aa85"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#_CPPv4N9Plaquette14SparseGraphRowE" title="Plaquette::SparseGraphRow"><span class="n"><span class="pre">SparseGraphRow</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetEdgesTouchingEdge</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">edge_index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9Plaquette11SparseGraph20GetEdgesTouchingEdgeE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get a row of edges in the graph that touch a given edge. </p>
+<p>
+This function returns a row of edges in the graph that touch the given edge. The row is represented as a <code class="docutils literal notranslate"><a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#classPlaquette_1_1SparseGraphRow"><span class="std std-ref"><span class="pre">SparseGraphRow</span></span></a></code> object, which is a lightweight view into a range of elements in a larger container.</p>
+<p>The edges in the row are returned as an rvalue reference to a <code class="docutils literal notranslate"><a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#classPlaquette_1_1SparseGraphRow"><span class="std std-ref"><span class="pre">SparseGraphRow</span></span></a></code> object, which allows the caller to avoid creating an unnecessary copy of the row.</p>
+<p>Note that the caller should not use the returned reference after the lifetime of the <code class="docutils literal notranslate"><a class="reference internal" href="classPlaquette_1_1DecodingGraph.html#classPlaquette_1_1DecodingGraph"><span class="std std-ref"><span class="pre">DecodingGraph</span></span></a></code> object, since the <code class="docutils literal notranslate"><a class="reference internal" href="classPlaquette_1_1SparseGraphRow.html#classPlaquette_1_1SparseGraphRow"><span class="std std-ref"><span class="pre">SparseGraphRow</span></span></a></code> object holds a reference to the <code class="docutils literal notranslate"><span class="pre">e_to_e_col_</span></code> container owned by the <code class="docutils literal notranslate"><a class="reference internal" href="classPlaquette_1_1DecodingGraph.html#classPlaquette_1_1DecodingGraph"><span class="std std-ref"><span class="pre">DecodingGraph</span></span></a></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>edge_index</strong> – The index of the edge in the graph. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A row of edges in the graph that touch the edge.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9Plaquette11SparseGraph26GetVerticesConnectedByEdgeE6size_t">
+<span id="_CPPv3NK9Plaquette11SparseGraph26GetVerticesConnectedByEdgeE6size_t"></span><span id="_CPPv2NK9Plaquette11SparseGraph26GetVerticesConnectedByEdgeE6size_t"></span><span id="Plaquette::SparseGraph::GetVerticesConnectedByEdge__sC"></span><span class="target" id="classPlaquette_1_1SparseGraph_1abbf002fc505f6471b07d127fad6c2c0d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">GetVerticesConnectedByEdge</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">edge_index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9Plaquette11SparseGraph26GetVerticesConnectedByEdgeE6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the pair of vertices connected by a given edge. </p>
+<p>
+This function returns a reference to the pair of indices of the two vertices connected by the edge with index <code class="docutils literal notranslate"><span class="pre">edge_index</span></code>. The function simply looks up the pair in the <code class="docutils literal notranslate"><span class="pre">e_to_v_</span></code> map stored by the <code class="docutils literal notranslate"><a class="reference internal" href="classPlaquette_1_1DecodingGraph.html#classPlaquette_1_1DecodingGraph"><span class="std std-ref"><span class="pre">DecodingGraph</span></span></a></code> object.</p>
+<p>Note that the returned reference is const, so the caller should not attempt to modify the pair of vertices. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>edge_index</strong> – The index of the edge in the graph. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The pair of indices of the two vertices connected by the edge.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9Plaquette11SparseGraph21GetEdgeFromVertexPairERKNSt4pairI6size_t6size_tEE">
+<span id="_CPPv3NK9Plaquette11SparseGraph21GetEdgeFromVertexPairERKNSt4pairI6size_t6size_tEE"></span><span id="_CPPv2NK9Plaquette11SparseGraph21GetEdgeFromVertexPairERKNSt4pairI6size_t6size_tEE"></span><span id="Plaquette::SparseGraph::GetEdgeFromVertexPair__std::pair:s.s:CRC"></span><span class="target" id="classPlaquette_1_1SparseGraph_1a2d346233b61e003416f5517ff5921047"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetEdgeFromVertexPair</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vertex_pair</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9Plaquette11SparseGraph21GetEdgeFromVertexPairERKNSt4pairI6size_t6size_tEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get the index of the edge that connects a given pair of vertices. </p>
+<p>
+This function returns the index of the edge in the graph that connects the two vertices specified by <code class="docutils literal notranslate"><span class="pre">vertex_pair</span></code>. The function searches for the edge by iterating over the row in the graph corresponding to the first vertex in <code class="docutils literal notranslate"><span class="pre">vertex_pair</span></code> and looking for the column index corresponding to the second vertex in <code class="docutils literal notranslate"><span class="pre">vertex_pair</span></code>.</p>
+<p>If the edge is found, its index is returned. If the edge is not found, an assertion failure occurs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vertex_pair</strong> – A pair of indices of the two vertices. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The index of the edge that connects the two vertices.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Plaquette C++ Graph</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../code/__init__.html">Python API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="library_root.html">C++ API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="library_root.html">Overview</a><ul>
+      <li>Previous: <a href="classPlaquette_1_1DecodingGraph.html" title="previous chapter">Class DecodingGraph</a></li>
+      <li>Next: <a href="classPlaquette_1_1SparseGraphRow.html" title="next chapter">Class SparseGraphRow</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;Copyright 2023.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/api/classPlaquette_1_1SparseGraph.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

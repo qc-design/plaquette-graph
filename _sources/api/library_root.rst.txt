@@ -1,0 +1,13 @@
+========
+Overview
+========
+
+
+The Plaquette C++ Grpah API is intended to be called from Python through Pybind11. Direct use of the C++ API is currently unsupported and is provided for reference only.
+
+.. include:: class_view_hierarchy.rst.include
+
+.. include:: file_view_hierarchy.rst.include
+
+.. include:: unabridged_api.rst.include
+

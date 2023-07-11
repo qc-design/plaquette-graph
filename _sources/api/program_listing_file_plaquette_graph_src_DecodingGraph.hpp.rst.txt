@@ -1,0 +1,84 @@
+
+.. _program_listing_file_plaquette_graph_src_DecodingGraph.hpp:
+
+Program Listing for File DecodingGraph.hpp
+==========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_plaquette_graph_src_DecodingGraph.hpp>` (``plaquette_graph/src/DecodingGraph.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include "SparseGraph.hpp"
+   
+   namespace Plaquette {
+   class DecodingGraph : public SparseGraph {
+   
+     private:
+       std::vector<bool>
+           vertex_boundary_type_; 
+   
+       std::vector<size_t>
+           local_edge_strides_; 
+       std::vector<size_t> local_to_global_edge_map_;
+       std::vector<int> global_to_local_edge_map_;
+       size_t num_local_edges_;
+   
+     public:
+       DecodingGraph() = default; 
+       DecodingGraph(size_t num_vertices,
+                     const std::vector<std::pair<size_t, size_t>> &edges,
+                     const std::vector<bool> &vertex_boundary_type)
+           : SparseGraph(num_vertices, edges) {
+           vertex_boundary_type_ = vertex_boundary_type;
+   
+           num_local_edges_ = 0;
+           for (size_t i = 0; i < num_vertices; i++) {
+               local_edge_strides_.push_back(num_local_edges_);
+               const auto &edges = GetEdgesTouchingVertex(i);
+               num_local_edges_ += edges.size();
+           }
+   
+           std::vector<bool> local_edge_visited(GetNumEdges() * 2, false);
+           global_to_local_edge_map_.resize(GetNumEdges() * 2, -1);
+           local_to_global_edge_map_.resize(num_local_edges_);
+   
+           for (size_t i = 0; i < num_vertices; i++) {
+               const auto &edges = GetEdgesTouchingVertex(i);
+               size_t stride = local_edge_strides_[i];
+               for (size_t e = 0; e < edges.size(); e++) {
+                   local_to_global_edge_map_[stride + e] = edges[e];
+                   if (local_edge_visited[2 * edges[e] + 0] == false) {
+                       global_to_local_edge_map_[2 * edges[e] + 0] = stride + e;
+                       local_edge_visited[2 * edges[e] + 0] = true;
+                   } else {
+                       global_to_local_edge_map_[2 * edges[e] + 1] = stride + e;
+                       local_edge_visited[2 * edges[e] + 1] = true;
+                   }
+               }
+           }
+       }
+   
+       bool IsVertexOnBoundary(size_t vertex_id) const {
+           return vertex_boundary_type_[vertex_id];
+       }
+   
+       size_t GetNumLocalEdges() const { return num_local_edges_; }
+   
+       inline size_t GetLocalEdgeStride(size_t vertex_id) const {
+           return local_edge_strides_[vertex_id];
+       }
+   
+       inline size_t GetGlobalEdgeFromLocalEdge(size_t local_edge_id) const {
+           return local_to_global_edge_map_[local_edge_id];
+       }
+   
+       inline size_t GetLocalEdgeFromGlobalEdge(size_t global_edge_id,
+                                                size_t left_or_right_id) const {
+           return global_to_local_edge_map_[2 * global_edge_id + left_or_right_id];
+       }
+   };
+   }; // namespace Plaquette

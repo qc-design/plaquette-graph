@@ -1,0 +1,17 @@
+SparseGraphRow
+==============
+
+.. currentmodule:: plaquette_graph
+
+.. autoclass:: SparseGraphRow
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~SparseGraphRow.size
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: size

@@ -1,0 +1,17 @@
+.. _exhale_class_classPlaquette_1_1SparseGraphRow:
+
+Class SparseGraphRow
+====================
+
+- Defined in :ref:`file_plaquette_graph_src_SparseGraph.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: Plaquette::SparseGraphRow
+   :project: Plaquette-Cpp-Graph
+   :members:
+   :protected-members:
+   :undoc-members:

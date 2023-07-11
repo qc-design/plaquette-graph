@@ -1,0 +1,22 @@
+.. _dir_plaquette_graph_src:
+
+
+Directory src
+=============
+
+
+|exhale_lsh| :ref:`Parent directory <dir_plaquette_graph>` (``plaquette_graph``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``plaquette_graph/src``
+
+
+Files
+-----
+
+- :ref:`file_plaquette_graph_src_DecodingGraph.hpp`
+- :ref:`file_plaquette_graph_src_SparseGraph.hpp`
+
+

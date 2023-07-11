@@ -1,0 +1,16 @@
+.. _dir_plaquette_graph:
+
+
+Directory plaquette_graph
+=========================
+
+
+*Directory path:* ``plaquette_graph``
+
+Subdirectories
+--------------
+
+- :ref:`dir_plaquette_graph_src`
+
+
+

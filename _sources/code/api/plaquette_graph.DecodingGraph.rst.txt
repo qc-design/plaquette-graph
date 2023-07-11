@@ -1,0 +1,29 @@
+DecodingGraph
+=============
+
+.. currentmodule:: plaquette_graph
+
+.. autoclass:: DecodingGraph
+   :show-inheritance:
+
+   .. rubric:: Methods Summary
+
+   .. autosummary::
+
+      ~DecodingGraph.get_edges_touching_edge
+      ~DecodingGraph.get_edges_touching_vertex
+      ~DecodingGraph.get_num_edges
+      ~DecodingGraph.get_num_vertices
+      ~DecodingGraph.get_vertices_connected_by_edge
+      ~DecodingGraph.get_vertices_touching_vertex
+      ~DecodingGraph.is_vertex_on_boundary
+
+   .. rubric:: Methods Documentation
+
+   .. automethod:: get_edges_touching_edge
+   .. automethod:: get_edges_touching_vertex
+   .. automethod:: get_num_edges
+   .. automethod:: get_num_vertices
+   .. automethod:: get_vertices_connected_by_edge
+   .. automethod:: get_vertices_touching_vertex
+   .. automethod:: is_vertex_on_boundary

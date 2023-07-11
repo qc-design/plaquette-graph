@@ -1,0 +1,68 @@
+
+.. _file_plaquette_graph_src_SparseGraph.hpp:
+
+File SparseGraph.hpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_plaquette_graph_src>` (``plaquette_graph/src``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``plaquette_graph/src/SparseGraph.hpp``)
+----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_plaquette_graph_src_SparseGraph.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``Utils.hpp``
+
+- ``cassert``
+
+- ``iostream``
+
+- ``unordered_set``
+
+- ``vector``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_plaquette_graph_src_DecodingGraph.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_Plaquette`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classPlaquette_1_1SparseGraph`
+
+- :ref:`exhale_class_classPlaquette_1_1SparseGraphRow`
+

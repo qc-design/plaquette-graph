@@ -1,0 +1,24 @@
+
+.. _namespace_Plaquette:
+
+Namespace Plaquette
+===================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classPlaquette_1_1DecodingGraph`
+
+- :ref:`exhale_class_classPlaquette_1_1SparseGraph`
+
+- :ref:`exhale_class_classPlaquette_1_1SparseGraphRow`

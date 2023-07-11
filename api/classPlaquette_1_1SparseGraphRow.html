@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class SparseGraphRow &#8212; Plaquette C++ Graph 0.0.1-alpha.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Class SparseGraph" href="classPlaquette_1_1SparseGraph.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="class-sparsegraphrow">
+<span id="exhale-class-classplaquette-1-1sparsegraphrow"></span><h1>Class SparseGraphRow<a class="headerlink" href="#class-sparsegraphrow" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_plaquette_graph_src_SparseGraph.hpp.html#file-plaquette-graph-src-sparsegraph-hpp"><span class="std std-ref">File SparseGraph.hpp</span></a></p></li>
+</ul>
+<div class="section" id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Permalink to this headline">¶</a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N9Plaquette14SparseGraphRowE">
+<span id="_CPPv3N9Plaquette14SparseGraphRowE"></span><span id="_CPPv2N9Plaquette14SparseGraphRowE"></span><span id="Plaquette::SparseGraphRow"></span><span class="target" id="classPlaquette_1_1SparseGraphRow"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SparseGraphRow</span></span></span><a class="headerlink" href="#_CPPv4N9Plaquette14SparseGraphRowE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A lightweight view into a range of elements in a vector. </p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classPlaquette_1_1SparseGraphRow"><span class="std std-ref"><span class="pre">SparseGraphRow</span></span></a></code> class provides a lightweight view into a range of elements in a vector. The class is used to represent a row of non-zero elements in a matrix stored as a compressed sparse row (CSR) format. A <code class="docutils literal notranslate"><a class="reference internal" href="#classPlaquette_1_1SparseGraphRow"><span class="std std-ref"><span class="pre">SparseGraphRow</span></span></a></code> object consists of a reference to the vector of non-zero elements, along with start and end indices that delimit the range of elements in the row.</p>
+<p>The <code class="docutils literal notranslate"><a class="reference internal" href="#classPlaquette_1_1SparseGraphRow"><span class="std std-ref"><span class="pre">SparseGraphRow</span></span></a></code> class provides two public member functions: <code class="docutils literal notranslate"><span class="pre">size()</span></code> and <code class="docutils literal notranslate"><span class="pre">operator[]()</span></code>. The <code class="docutils literal notranslate"><span class="pre">size()</span></code> function returns the number of non-zero elements in the row, and the <code class="docutils literal notranslate"><span class="pre">operator[]()</span></code> function returns the value at a specific index in the row. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N9Plaquette14SparseGraphRow14SparseGraphRowERKNSt6vectorI6size_tEE6size_t6size_t">
+<span id="_CPPv3N9Plaquette14SparseGraphRow14SparseGraphRowERKNSt6vectorI6size_tEE6size_t6size_t"></span><span id="_CPPv2N9Plaquette14SparseGraphRow14SparseGraphRowERKNSt6vectorI6size_tEE6size_t6size_t"></span><span id="Plaquette::SparseGraphRow::SparseGraphRow__std::vector:s:CR.s.s"></span><span class="target" id="classPlaquette_1_1SparseGraphRow_1af457fccca434d4ae307e2f70a8888222"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SparseGraphRow</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">size_t</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">row</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">start</span></span>, <span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">end</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N9Plaquette14SparseGraphRow14SparseGraphRowERKNSt6vectorI6size_tEE6size_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9Plaquette14SparseGraphRow4sizeEv">
+<span id="_CPPv3NK9Plaquette14SparseGraphRow4sizeEv"></span><span id="_CPPv2NK9Plaquette14SparseGraphRow4sizeEv"></span><span id="Plaquette::SparseGraphRow::sizeC"></span><span class="target" id="classPlaquette_1_1SparseGraphRow_1ae36e99b3fa54f7b5cf9229fc5b4b0338"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9Plaquette14SparseGraphRow4sizeEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK9Plaquette14SparseGraphRowixEi">
+<span id="_CPPv3NK9Plaquette14SparseGraphRowixEi"></span><span id="_CPPv2NK9Plaquette14SparseGraphRowixEi"></span><span id="Plaquette::SparseGraphRow::subscript-operator__iC"></span><span class="target" id="classPlaquette_1_1SparseGraphRow_1aa0eecde7b10aa48f8b2f637132bf5316"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK9Plaquette14SparseGraphRowixEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Plaquette C++ Graph</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../code/__init__.html">Python API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="library_root.html">C++ API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="library_root.html">Overview</a><ul>
+      <li>Previous: <a href="classPlaquette_1_1SparseGraph.html" title="previous chapter">Class SparseGraph</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;Copyright 2023.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../_sources/api/classPlaquette_1_1SparseGraphRow.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

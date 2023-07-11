@@ -1,0 +1,33 @@
+:orphan:
+
+
+Full API
+========
+
+Directories
+***********
+
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_plaquette_graph.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   dir_plaquette_graph_src.rst
+
+Files
+*****
+
+
+.. toctree::
+   :maxdepth: 5
+
+   file_plaquette_graph_src_DecodingGraph.hpp.rst
+
+.. toctree::
+   :maxdepth: 5
+
+   file_plaquette_graph_src_SparseGraph.hpp.rst

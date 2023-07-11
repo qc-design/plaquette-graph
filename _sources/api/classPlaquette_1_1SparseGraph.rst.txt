@@ -1,0 +1,26 @@
+.. _exhale_class_classPlaquette_1_1SparseGraph:
+
+Class SparseGraph
+=================
+
+- Defined in :ref:`file_plaquette_graph_src_SparseGraph.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public Plaquette::DecodingGraph`` (:ref:`exhale_class_classPlaquette_1_1DecodingGraph`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: Plaquette::SparseGraph
+   :project: Plaquette-Cpp-Graph
+   :members:
+   :protected-members:
+   :undoc-members:

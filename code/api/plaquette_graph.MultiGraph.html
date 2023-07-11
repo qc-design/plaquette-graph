@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MultiGraph &#8212; Plaquette C++ Graph 0.0.1-alpha.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/collapsible-lists/css/tree_view.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/collapsible-lists/js/CollapsibleLists.compressed.js"></script>
+    <script src="../../_static/collapsible-lists/js/apply-collapsible-lists.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="SparseGraph" href="plaquette_graph.SparseGraph.html" />
+    <link rel="prev" title="DecodingGraph" href="plaquette_graph.DecodingGraph.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="multigraph">
+<h1>MultiGraph<a class="headerlink" href="#multigraph" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="plaquette_graph.MultiGraph">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultiGraph</span></span><a class="headerlink" href="#plaquette_graph.MultiGraph" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pybind11_builtins.pybind11_object</span></code></p>
+<p>Undirected multi-graph class.</p>
+<p>An instance of this class represents an undirected multi-graph, which is a graph
+where multiple edges can exist between two vertices. Edges are identified by
+their indices, which correspond to their position in the list of edges provided
+when the graph is constructed.</p>
+<p class="rubric">Methods Summary</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#plaquette_graph.MultiGraph.get_edge_connecting_vertices" title="plaquette_graph.MultiGraph.get_edge_connecting_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edge_connecting_vertices</span></code></a>(self, vertex1, ...)</p></td>
+<td><p>Get the index of the edge connecting two vertices.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#plaquette_graph.MultiGraph.get_edges_touching_edge" title="plaquette_graph.MultiGraph.get_edges_touching_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edges_touching_edge</span></code></a>(self, edge)</p></td>
+<td><p>Get the indices of the edges that touch a given edge.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#plaquette_graph.MultiGraph.get_edges_touching_vertex" title="plaquette_graph.MultiGraph.get_edges_touching_vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_edges_touching_vertex</span></code></a>(self, vertex)</p></td>
+<td><p>Get the indices of the edges that touch a given vertex.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#plaquette_graph.MultiGraph.get_num_edges" title="plaquette_graph.MultiGraph.get_num_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_num_edges</span></code></a>(self)</p></td>
+<td><p>Get the number of edges in the graph.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#plaquette_graph.MultiGraph.get_num_vertices" title="plaquette_graph.MultiGraph.get_num_vertices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_num_vertices</span></code></a>(self)</p></td>
+<td><p>Get the number of vertices in the graph.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#plaquette_graph.MultiGraph.get_vertices_touching_vertex" title="plaquette_graph.MultiGraph.get_vertices_touching_vertex"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_vertices_touching_vertex</span></code></a>(self, vertex)</p></td>
+<td><p>Get the indices of the vertices that touch a given vertex.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#plaquette_graph.MultiGraph.get_weight" title="plaquette_graph.MultiGraph.get_weight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_weight</span></code></a>(self, edge_id)</p></td>
+<td><p>Get the weight of the edge connecting two vertices.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods Documentation</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="plaquette_graph.MultiGraph.get_edge_connecting_vertices">
+<span class="sig-name descname"><span class="pre">get_edge_connecting_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#plaquette_graph.MultiGraph" title="plaquette_graph_bindings.MultiGraph"><span class="pre">plaquette_graph_bindings.MultiGraph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#plaquette_graph.MultiGraph.get_edge_connecting_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the index of the edge connecting two vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>vertex1</strong> – An integer representing the index</p></li>
+<li><p><strong>vertex.</strong> (<em>of the first</em>) – </p></li>
+<li><p><strong>vertex2</strong> – An integer representing the index of the second vertex.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The index of the edge connecting the two vertices. If no such edge
+exists, returns the number of edges in the graph.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plaquette_graph.MultiGraph.get_edges_touching_edge">
+<span class="sig-name descname"><span class="pre">get_edges_touching_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#plaquette_graph.MultiGraph" title="plaquette_graph_bindings.MultiGraph"><span class="pre">plaquette_graph_bindings.MultiGraph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#plaquette_graph.MultiGraph.get_edges_touching_edge" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the indices of the edges that touch a given edge.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>edge</strong> – An integer representing the index of the edge.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of integers representing the indices of the edges that touch the
+edge.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plaquette_graph.MultiGraph.get_edges_touching_vertex">
+<span class="sig-name descname"><span class="pre">get_edges_touching_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#plaquette_graph.MultiGraph" title="plaquette_graph_bindings.MultiGraph"><span class="pre">plaquette_graph_bindings.MultiGraph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#plaquette_graph.MultiGraph.get_edges_touching_vertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the indices of the edges that touch a given vertex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vertex</strong> – An integer representing the index of the vertex.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of integers representing the indices of the edges that touch the
+vertex.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plaquette_graph.MultiGraph.get_num_edges">
+<span class="sig-name descname"><span class="pre">get_num_edges</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#plaquette_graph.MultiGraph" title="plaquette_graph_bindings.MultiGraph"><span class="pre">plaquette_graph_bindings.MultiGraph</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#plaquette_graph.MultiGraph.get_num_edges" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of edges in the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An integer representing the number of edges in the graph.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plaquette_graph.MultiGraph.get_num_vertices">
+<span class="sig-name descname"><span class="pre">get_num_vertices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#plaquette_graph.MultiGraph" title="plaquette_graph_bindings.MultiGraph"><span class="pre">plaquette_graph_bindings.MultiGraph</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#plaquette_graph.MultiGraph.get_num_vertices" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the number of vertices in the graph.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An integer representing the number of vertices in the graph.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plaquette_graph.MultiGraph.get_vertices_touching_vertex">
+<span class="sig-name descname"><span class="pre">get_vertices_touching_vertex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#plaquette_graph.MultiGraph" title="plaquette_graph_bindings.MultiGraph"><span class="pre">plaquette_graph_bindings.MultiGraph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertex</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#plaquette_graph.MultiGraph.get_vertices_touching_vertex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the indices of the vertices that touch a given vertex.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vertex</strong> – An integer representing the index of the vertex.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of integers representing the indices of the vertexs that touch the
+vertex.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="plaquette_graph.MultiGraph.get_weight">
+<span class="sig-name descname"><span class="pre">get_weight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#plaquette_graph.MultiGraph" title="plaquette_graph_bindings.MultiGraph"><span class="pre">plaquette_graph_bindings.MultiGraph</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">edge_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#plaquette_graph.MultiGraph.get_weight" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the weight of the edge connecting two vertices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>edge_id</strong> – An integer representing the edge index.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The weight of the edge. If no such edge
+exists, returns 0.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Plaquette C++ Graph</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../__init__.html">Python API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/library_root.html">C++ API</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../__init__.html">Python API</a><ul>
+      <li>Previous: <a href="plaquette_graph.DecodingGraph.html" title="previous chapter">DecodingGraph</a></li>
+      <li>Next: <a href="plaquette_graph.SparseGraph.html" title="next chapter">SparseGraph</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;Copyright 2023.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.5.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="../../_sources/code/api/plaquette_graph.MultiGraph.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
