@@ -24,6 +24,7 @@ class DecodingGraph : public SparseGraph {
     std::vector<size_t>
         local_edge_strides_; ///< A vector of edge strides for each vertex.
     std::vector<size_t> local_to_global_edge_map_;
+    std::vector<int> global_to_local_edge_map_;
     size_t num_local_edges_;
 
   public:
@@ -56,12 +57,22 @@ class DecodingGraph : public SparseGraph {
             num_local_edges_ += edges.size();
         }
 
+        std::vector<bool> local_edge_visited(GetNumEdges() * 2, false);
+        global_to_local_edge_map_.resize(GetNumEdges() * 2, -1);
         local_to_global_edge_map_.resize(num_local_edges_);
+
         for (size_t i = 0; i < num_vertices; i++) {
             const auto &edges = GetEdgesTouchingVertex(i);
             size_t stride = local_edge_strides_[i];
             for (size_t e = 0; e < edges.size(); e++) {
                 local_to_global_edge_map_[stride + e] = edges[e];
+                if (local_edge_visited[2 * edges[e] + 0] == false) {
+                    global_to_local_edge_map_[2 * edges[e] + 0] = stride + e;
+                    local_edge_visited[2 * edges[e] + 0] = true;
+                } else {
+                    global_to_local_edge_map_[2 * edges[e] + 1] = stride + e;
+                    local_edge_visited[2 * edges[e] + 1] = true;
+                }
             }
         }
     }
@@ -94,7 +105,7 @@ class DecodingGraph : public SparseGraph {
      * @param vertex_id The ID of the vertex to get the local edge stride for.
      * @return The local edge stride for the given vertex ID.
      */
-    size_t GetLocalEdgeStride(size_t vertex_id) const {
+    inline size_t GetLocalEdgeStride(size_t vertex_id) const {
         return local_edge_strides_[vertex_id];
     }
 
@@ -104,8 +115,21 @@ class DecodingGraph : public SparseGraph {
      * @param local_edge_id The ID of the local edge.
      * @return The corresponding global edge ID.
      */
-    size_t GetGlobalEdgeFromLocalEdge(size_t local_edge_id) const {
+    inline size_t GetGlobalEdgeFromLocalEdge(size_t local_edge_id) const {
         return local_to_global_edge_map_[local_edge_id];
+    }
+
+    /**
+       @brief Returns the local edge ID corresponding to a given global edge ID
+       and left or right ID.
+       @param global_edge_id The ID of the global edge.
+       @param left_or_right_id The ID indicating whether it is the left or right
+       endpoint of the edge.
+       @return The corresponding local edge ID.
+    */
+    inline size_t GetLocalEdgeFromGlobalEdge(size_t global_edge_id,
+                                             size_t left_or_right_id) {
+        return global_to_local_edge_map_[2 * global_edge_id + left_or_right_id];
     }
 };
 }; // namespace Plaquette
