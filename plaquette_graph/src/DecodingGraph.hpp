@@ -88,7 +88,7 @@ class DecodingGraph : public SparseGraph {
      * @return true if the vertex is on the boundary of the decoding graph,
      * false otherwise.
      */
-    bool IsVertexOnBoundary(size_t vertex_id) const {
+    inline bool IsVertexOnBoundary(size_t vertex_id) const {
         return vertex_boundary_type_[vertex_id];
     }
 
